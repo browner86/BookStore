@@ -30,7 +30,7 @@ router.post('/add-product', (req, res, next) => {
 });
 
 // /admin/delete-product => POST
-router.post('/delete-product', (req, res, next) => {
+router.get('/delete-product', (req, res, next) => {
   products.pop({ title: req.body.title
                 , price: req.body.price
                 , description: req.body.description
