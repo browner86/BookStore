@@ -29,5 +29,16 @@ router.post('/add-product', (req, res, next) => {
   res.redirect('/');
 });
 
+// /admin/delete-product => POST
+router.post('/delete-product', (req, res, next) => {
+  products.pop({ title: req.body.title
+                , price: req.body.price
+                , description: req.body.description
+                , ratings: req.body.ratings 
+              });
+  res.redirect('/');
+});
+
+
 exports.routes = router;
 exports.products = products;
