@@ -45,6 +45,7 @@ app.set('views', 'views');
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const authRoutes = require('./routes/auth');
+let userName = '';
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -65,11 +66,17 @@ app.use((req, res, next) => {
   }
   User.findById(req.session.user._id)
     .then(user => {
+      console.log(user);
       req.user = user;
+     console.log(req.user.name);
+     username = req.user.name;
+    //  return username
       next();
     })
     .catch(err => console.log(err));
 });
+
+
 
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.session.isLoggedIn;
