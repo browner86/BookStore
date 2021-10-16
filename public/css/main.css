@@ -61,6 +61,7 @@ form {
 }
 
 .main-header__item a,
+.main-header__item p,
 .main-header__item button {
   font: inherit;
   background: transparent;
